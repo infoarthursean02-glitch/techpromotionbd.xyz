@@ -1,0 +1,279 @@
+import { Package, SiteSettings, FAQItem } from '../types';
+
+export const INITIAL_PACKAGES: Package[] = [
+  // ENTRY CATEGORY (All unique distinct names)
+  {
+    id: 'entry-pkg-1',
+    name: 'Starter Video Boost',
+    category: 'entry',
+    quantityLabel: '2,000 Views',
+    baseQuantity: 2000,
+    basePrice: 50,
+    quantityStep: 2000,
+    priceStep: 50,
+    allowQuantityIncrease: false,
+    image: '/src/assets/images/facebook_views_service_1791232714396.jpg',
+    description: 'Fast entry promotion for new Facebook video uploads and quick impressions.',
+    optionalOpportunity: '1 Video',
+    features: ['Real audience retention', 'Fast automated delivery', '24/7 Support assistance', 'Non-drop organic traffic']
+  },
+  {
+    id: 'entry-pkg-2',
+    name: 'Viral Reach Accelerator',
+    category: 'entry',
+    quantityLabel: '30,000 Views',
+    baseQuantity: 30000,
+    basePrice: 299,
+    quantityStep: 30000,
+    priceStep: 299,
+    allowQuantityIncrease: false,
+    image: '/src/assets/images/entry_views_30k_1791233952025.jpg',
+    description: 'Multi-video promotion package designed to boost organic recommendation algorithms.',
+    optionalOpportunity: 'Up to 5 Videos',
+    popularBadge: 'Popular',
+    features: ['Split across up to 5 videos', 'High watch time signals', 'Safe promotion method', 'Instant queue dispatch']
+  },
+  {
+    id: 'entry-pkg-3',
+    name: 'Mega Stream Surge',
+    category: 'entry',
+    quantityLabel: '50,000 Views',
+    baseQuantity: 50000,
+    basePrice: 499,
+    quantityStep: 50000,
+    priceStep: 499,
+    allowQuantityIncrease: true,
+    image: '/src/assets/images/entry_views_50k_1791233968798.jpg',
+    description: 'Scalable high-velocity view campaign with unlimited volume adjustment.',
+    optionalOpportunity: 'Up to 10 Videos',
+    popularBadge: 'Best Value',
+    features: ['Unlimited volume scaling', 'Split up to 10 video links', 'High algorithmic impact', 'Real watch retention']
+  },
+
+  // CORE CATEGORY (All unique distinct names)
+  {
+    id: 'core-pkg-1',
+    name: 'Creator Launchpad Suite',
+    category: 'core',
+    quantityLabel: '5,000 Followers · 15,000 Views',
+    baseQuantity: 1,
+    basePrice: 999,
+    quantityStep: 1,
+    priceStep: 999,
+    allowQuantityIncrease: true,
+    image: '/src/assets/images/engagement_combo_service_1791232735975.jpg',
+    description: 'Comprehensive combo boosting profile authority, views, likes, and genuine comments.',
+    optionalOpportunity: '1 Page or Profile · Up to 5 Videos',
+    features: ['5,000 Organic Followers', '15,000 HD Video Views', '1,000 Post Likes', '150 Custom Comments', '50 Organic Shares']
+  },
+  {
+    id: 'core-pkg-2',
+    name: 'Authority Growth Package',
+    category: 'core',
+    quantityLabel: '10,000 Followers · 50,000 Views',
+    baseQuantity: 1,
+    basePrice: 1999,
+    quantityStep: 1,
+    priceStep: 1999,
+    allowQuantityIncrease: true,
+    image: '/src/assets/images/core_growth_10k_1791233981134.jpg',
+    description: 'High-growth bundle designed for emerging creators and commercial Facebook pages.',
+    optionalOpportunity: '1 Page or Profile · Up to 10 Videos',
+    popularBadge: 'Popular',
+    features: ['10,000 Organic Followers', '50,000 HD Video Views', '2,000 Post Likes', '500 Engagement Comments', '100 Shares']
+  },
+  {
+    id: 'core-pkg-3',
+    name: 'Brand Dominance Bundle',
+    category: 'core',
+    quantityLabel: '30,000 Followers · 100,000 Views',
+    baseQuantity: 1,
+    basePrice: 4999,
+    quantityStep: 1,
+    priceStep: 4999,
+    allowQuantityIncrease: true,
+    image: '/src/assets/images/core_growth_30k_1791233991383.jpg',
+    description: 'Advanced multi-tier campaign for businesses requiring market credibility and social proof.',
+    optionalOpportunity: '1 Page or Profile · Up to 10 Videos',
+    popularBadge: 'Best Value',
+    features: ['30,000 High-Authority Followers', '100,000 Broad Reach Views', '2,000 Likes', '300 Active Comments', '100 Viral Shares']
+  },
+
+  // PREMIUM CATEGORY (All unique distinct names)
+  {
+    id: 'prem-pkg-1',
+    name: 'Audience Expansion Pro',
+    category: 'premium',
+    quantityLabel: '50,000 Followers',
+    baseQuantity: 50000,
+    basePrice: 5000,
+    quantityStep: 50000,
+    priceStep: 5000,
+    allowQuantityIncrease: true,
+    image: '/src/assets/images/follower_growth_service_1791232725012.jpg',
+    description: 'Dedicated high-volume follower growth delivered across genuine user networks.',
+    optionalOpportunity: 'Up to 2 Pages or Profiles',
+    features: ['50,000 Stable Followers', 'Multi-page split support (up to 2)', 'Organic speed dripping', 'Lifetime guarantee refill']
+  },
+  {
+    id: 'prem-pkg-2',
+    name: 'High-Velocity Follower Network',
+    category: 'premium',
+    quantityLabel: '100,000 Followers',
+    baseQuantity: 100000,
+    basePrice: 8999,
+    quantityStep: 100000,
+    priceStep: 8999,
+    allowQuantityIncrease: true,
+    image: '/src/assets/images/prem_followers_100k_1791234003256.jpg',
+    description: 'Large-scale follower campaign for accelerating page ranking and creator monetization.',
+    optionalOpportunity: 'Up to 3 Pages or Profiles',
+    popularBadge: 'Popular',
+    features: ['100,000 Authentic Followers', 'Up to 3 Pages / Profiles', 'Priority fast processing', 'High profile trust score']
+  },
+  {
+    id: 'prem-pkg-3',
+    name: 'Elite Influencer Follower Cloud',
+    category: 'premium',
+    quantityLabel: '500,000 Followers',
+    baseQuantity: 500000,
+    basePrice: 35000,
+    quantityStep: 500000,
+    priceStep: 35000,
+    allowQuantityIncrease: true,
+    image: '/src/assets/images/prem_followers_500k_1791234014820.jpg',
+    description: 'Massive scale follower promotion for public figures, agencies and enterprise media channels.',
+    optionalOpportunity: 'Up to 5 Pages or Profiles',
+    features: ['500,000 Massive Network Reach', 'Up to 5 Pages or Profiles', 'VIP Account Manager Dedicated', 'Refill guarantee included']
+  },
+
+  // VIP CATEGORY (All unique distinct names)
+  {
+    id: 'vip-pkg-1',
+    name: 'Enterprise Viral Scaling Empire',
+    category: 'vip',
+    quantityLabel: '200,000 Followers · 1,000,000 Views',
+    baseQuantity: 1,
+    basePrice: 40000,
+    quantityStep: 1,
+    priceStep: 40000,
+    allowQuantityIncrease: true,
+    image: '/src/assets/images/vip_enterprise_service_1791232746058.jpg',
+    description: 'Full-spectrum viral campaign engineered for brands launching nationwide products.',
+    optionalOpportunity: 'Up to 5 Pages or Profiles · Up to 10 Videos',
+    popularBadge: 'Popular',
+    features: ['200,000 High Tier Followers', '1,000,000 High-Retention Views', '10,000 Engaged Post Likes', '3,000 Custom Comments', '1,000 Organic Shares']
+  },
+  {
+    id: 'vip-pkg-2',
+    name: 'Celebrity Nationwide Omnipresence',
+    category: 'vip',
+    quantityLabel: '1,000,000 Followers · 3,000,000 Views',
+    baseQuantity: 1,
+    basePrice: 100000,
+    quantityStep: 1,
+    priceStep: 100000,
+    allowQuantityIncrease: true,
+    image: '/src/assets/images/vip_galaxy_1m_1791234027353.jpg',
+    description: 'Maximum echelon social media dominance for public personalities and corporate brands.',
+    optionalOpportunity: 'Up to 5 Pages or Profiles · Up to 20 Videos',
+    popularBadge: 'Best Value',
+    features: ['1,000,000 Enterprise Reach', '3,000,000 Viral Video Views', '20,000 Organic Likes', '5,000 High-Quality Comments', '2,000 Authentic Shares']
+  }
+];
+
+export const INITIAL_SETTINGS: SiteSettings = {
+  siteName: 'Tech Promotion BD',
+  tagline: 'Tech Promotion BD — 100% organic social media services provider - since 2021.',
+  primaryWhatsapp: '+8801601300122',
+  alternativeWhatsapp: '+8801795315431',
+  email: 'techpromotionbd@gmail.com',
+  address: 'College Road, Thana Para, Gaibandha Sadar, Rangpur, Bangladesh - 5700',
+  currency: 'BDT',
+  promoCode: 'TechPromotionBD',
+  statSince: 'Since 2021',
+  statOrders: '10K+',
+  statDelivery: 'Fast & Secure',
+  statSupport: '24/7 Live',
+  statTotalViews: '9696.6 M',
+  statTotalEngagement: '19.3 M',
+  heroVideoUrl: '',
+  heroVideoPoster: '/src/assets/images/hero_cinematic_banner_1791233752016.jpg',
+  reels: [
+    {
+      id: 'reel-1',
+      title: '50,000 Views Delivery Proof',
+      subtitle: 'লাইভ ভিডিও ওয়াচটাইম ও ভাইরাল রিচ প্রুফ',
+      thumbnail: '/src/assets/images/reel_growth_proof_1791234096010.jpg',
+      videoUrl: '',
+      duration: '0:45',
+      views: '124K Views'
+    },
+    {
+      id: 'reel-2',
+      title: 'Organic Page Follower Boost',
+      subtitle: '৫ হাজার থেকে ৫০ হাজার ফলোয়ার গ্রোথ স্টোরি',
+      thumbnail: '/src/assets/images/reel_follower_boost_1791234110941.jpg',
+      videoUrl: '',
+      duration: '0:58',
+      views: '89K Views'
+    },
+    {
+      id: 'reel-3',
+      title: 'Client Review & Feedback',
+      subtitle: 'রিয়েল ক্লায়েন্টের অভিজ্ঞতা ও রিভিউ',
+      thumbnail: '/src/assets/images/reel_client_review_1791234122019.jpg',
+      videoUrl: '',
+      duration: '1:12',
+      views: '150K Views'
+    }
+  ]
+};
+
+export const INITIAL_FAQS: FAQItem[] = [
+  {
+    id: 'faq-1',
+    question: 'What services does Tech Promotion BD provide?',
+    answer: 'Tech Promotion BD provides 100% organic social media promotion services including Facebook video views, page/profile followers, likes, custom comments, and viral shares across Bangladesh. All campaigns are delivered through legitimate promotion networks compliant with social platform guidelines.'
+  },
+  {
+    id: 'faq-2',
+    question: 'How do I place an order?',
+    answer: 'Simply browse our packages (Entry, Core, Premium, or VIP), choose the package that fits your goals, click "Order Now", enter your name, WhatsApp number, and your Facebook page or video link, and complete your payment securely via Nagorik Pay (bKash, Nagad, Rocket, or Card).'
+  },
+  {
+    id: 'faq-3',
+    question: 'How do I provide my Facebook/Instagram/YouTube link?',
+    answer: 'In the order modal, paste your public URL (for example: https://www.facebook.com/yourpagename or your video link). Ensure that your account or video privacy is set to "Public" so our delivery systems can reach your content.'
+  },
+  {
+    id: 'faq-4',
+    question: 'How can I pay?',
+    answer: 'We accept automated payments through Nagorik Pay, which supports bKash, Nagad, Rocket, Upay, and major Bangladeshi debit/credit cards. Transactions are processed instantly and verified automatically.'
+  },
+  {
+    id: 'faq-5',
+    question: 'Is online payment secure?',
+    answer: 'Yes, 100%. All transactions are processed through encrypted SSL protocols directly via Nagorik Pay. We never store your card numbers or PINs. Every order receives an immediate verification receipt.'
+  },
+  {
+    id: 'faq-6',
+    question: 'Can I increase the quantity?',
+    answer: 'Yes! Packages that support quantity increases allow unlimited volume scaling. You can adjust the tier with + / - or enter any quantity, and the price will update dynamically in real time.'
+  },
+  {
+    id: 'faq-7',
+    question: 'How long does service delivery take?',
+    answer: 'Delivery typically starts within 15 to 60 minutes after payment confirmation. Depending on order volume, deliveries are organically dripped over hours to ensure maximum retention and account safety.'
+  },
+  {
+    id: 'faq-8',
+    question: 'Can I order for multiple pages?',
+    answer: 'Yes! Many of our packages explicitly support splitting across multiple pages or videos. You can provide additional links in the customer notes or share them directly with our WhatsApp team after checkout.'
+  },
+  {
+    id: 'faq-9',
+    question: 'How can I contact support?',
+    answer: 'Our dedicated customer support team is available 24/7 on WhatsApp at +8801601300122 and +8801795315431, or by emailing techpromotionbd@gmail.com. You can also click any "Contact on WhatsApp" button on this website for immediate assistance.'
+  }
+];
